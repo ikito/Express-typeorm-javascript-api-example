@@ -1,0 +1,32 @@
+{
+  "name": "Express-typeorm-javascript-api-example",
+  "version": "0.0.1",
+  "description": "Express api example using TypeORM with JavaScript",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "author": {
+    "name": "Eduardo García",
+    "email": "ikostar@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typeorm/javascript-example.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typeorm/javascript-example/issues"
+  },
+  "tags": [
+    "orm",
+    "javascript-orm",
+    "typeorm-sample",
+    "typeorm-example",
+    "express",
+    "api",
+    "postgres"
+  ],
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3",
+    "typeorm": "^0.2.0"
+  }
+}
