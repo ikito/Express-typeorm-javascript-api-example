@@ -20,4 +20,4 @@
 5. Run `node app.js` to run simple example
 6. Point your browser to http://localhost:3000 to test
 7. http://localhost:3000/filldb to insert data into DB
-8. http://localhost:3000/api/categories to list DB data
+8. http://localhost:3000/api/categories to list categories
