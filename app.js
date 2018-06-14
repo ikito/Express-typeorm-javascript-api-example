@@ -21,12 +21,12 @@ typeorm.createConnection().then(function (connection) {
 
     app.get('/api/films', function (req, res) {
       let filmRepository = connection.getRepository(Film);
-      filmRepository.find().then((values) => res.send(values));
+      filmRepository.find({ relations: ["categories"] }).then((values) => res.send(values));
     });
 
     app.get('/api/film/:id', function (req, res) {
       let filmRepository = connection.getRepository(Film);
-      filmRepository.findByIds(req.params.id).then((values) => res.send(values));
+      filmRepository.findByIds(req.params.id, { relations: ["categories"] }).then((values) => res.send(values));
     });
 
     app.get('/api/filldb', function (req, res) {
