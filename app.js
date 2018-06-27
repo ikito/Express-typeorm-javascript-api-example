@@ -29,20 +29,24 @@ typeorm.createConnection().then(function (connection) {
       filmRepository.findByIds(req.params.id, { relations: ["categories"] }).then((values) => res.send(values));
     });
 
-    app.get('/api/filldb', function (req, res) {
+    app.get('/api/filldb', async function (req, res) {
       // Fill categories
-      const category1 = new Category(0, "Terror");
-      const category2 = new Category(0, "Action");
-      const category3 = new Category(0, "SciFy");
+      //const category1 = new Category(0, "Terror");
+      //const category2 = new Category(0, "Action");
+      // const category3 = new Category(0, "SciFy");
       let catRepository = connection.getRepository(Category);
-      catRepository.save([category1, category2, category3])
-      // Fill films
-      const film1 = new Film(0,"Drácula","Vampire film",[category1]);
-      const film2 = new Film(0,"Rambo","Strong man film",[category2]);
-      const film3 = new Film(0,"Star wars","Space opera",[category2, category3]);
-      let filmRepository = connection.getRepository(Film);
-      filmRepository.save([film1, film2, film3])
+      let category = new Category();
+      category.name ="Terror";
+      let category1 = await catRepository.save(category);
+      console.log(category1);
 
+      let filmRepository = connection.getRepository(Film);
+      let film = new Film();
+      film.title = "Dracula";
+      film.synopsis = "Miedo";
+      film.categories = [category1];
+      let film1 = await filmRepository.save(film)
+      console.log (film1);
       res.send('Database has been filled');
     });
 
